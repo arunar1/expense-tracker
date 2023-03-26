@@ -18,12 +18,21 @@ const ExpensesForm = () => {
     const dateChangeHandler = (event) => {
         enteredDate = event.target.value;
         setEnteredDate(event.target.value);
-        console.log(event.target.value);
+    }
+
+    const submitHandler=(event)=>{
+        console.log("inside submit handler");
+        // const expenseDate={
+        //     title:enteredTitle,
+        //     amount:enteredAmount,
+        //     date : new Date(enteredDate)
+        // }
+
     }
 
     return (
         <div>
-            <form>
+            <form onSubmit={submitHandler}>
                 <div className='new-expense-control'>
                     <div className='new-expense-control'>
                         <label className='new-expense-control-label'>Title</label>
@@ -33,15 +42,16 @@ const ExpensesForm = () => {
                     <div className='new-expense-control'>
                         <label className='new-expense-control-label'>Amount</label>
                         <input className='new-expense-control-input' type="number"
-                            min='0.02' onChange={titleChangeHandler}></input>
+                            min='0.02' onChange={amountChangeHandler}></input>
                     </div>
                     <div className='new-expense-control'>
                         <label className='new-expense-control-label'>Date</label>
                         <input className='new-expense-control-input' type="date"
-                            min='2019-01-01' max='2023-01-01' onChange={titleChangeHandler}></input>
+                            min='2019-01-01' max='2023-01-01' onChange={dateChangeHandler}></input>
                     </div>
                     <div>
-                        <button className='new-expense-action' type='submit'>Add Expense</button>
+                        <button className='new-expense-action' 
+                        type='submit'>Add Expense</button>
                     </div>
                 </div>
             </form>
